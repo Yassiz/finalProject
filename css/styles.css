@@ -1,0 +1,96 @@
+body {
+	background: #000;
+	padding: 40px;
+	background-image: url("../images/bg1.jpg");
+}
+.main {
+	margin: 20px auto;
+	width: 960px;
+	height: 110px;
+	background: #ccc;
+	
+}
+.active {
+	background-repeat: no-repeat;
+	position: relative;
+	top: 5px;
+}
+.active2 {
+	background-repeat: no-repeat;
+	position: relative;
+	top: 43px;
+}
+.avatar {
+	width: 20%;
+	float: left;
+}
+#player1 {
+	background-repeat: no-repeat;
+	position: relative;
+	top: 5px;
+	margin-left: -40px;
+	background-image: url("../images/car.png");
+}
+#player2 {
+	background-repeat: no-repeat;
+	position: relative;
+	top: 43px;
+	margin-left: -40px;
+	background-image: url("../images/car.png");
+}
+h1, h2, h3 {
+	text-align: center;
+	color: white;
+}
+#display {
+	width: 500px;
+	background: #ccc;
+	margin: 0 auto;
+	border: 1px solid white;
+	border-radius: 20px;
+}
+#result {
+	display: none;
+	text-align: center;
+	color: white;
+	font-size: 26px;
+}
+.info {
+	margin: 10px auto;
+	background: #ccc;
+	width: 0;
+	height: 0;
+	background-image: url("../images/cheer.png");
+	color: #347C17;
+	font-weight: bold;
+}
+.name {
+	float: left;
+	padding: 20px;
+	text-decoration: underline;
+}
+.score {
+	float: right;
+	padding: 20px;
+	text-decoration: underline;
+}
+#play {
+	display: none;
+	float: right;
+}
+.first , .second {
+	text-align: center;
+}
+input {
+	margin-top: 10px;
+}
+.model {
+	margin-top: 10px;
+}
+#submit {
+	border-radius: 20px;
+	border: 0px solid #000;
+	background: white;
+	width: 150px;
+	margin: 20px 35%;
+}
