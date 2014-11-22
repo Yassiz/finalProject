@@ -84,6 +84,9 @@ h1, h2, h3 {
 input {
 	margin-top: 10px;
 }
+.model {
+	margin-top: 10px;
+}
 #submit {
 	border-radius: 20px;
 	border: 0px solid #000;
