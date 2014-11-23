@@ -1,15 +1,28 @@
+var api_data;
 
+function make_bandsintown_api_request(artist_name) {
+	
+	var url = "https://api.bandsintown.com/artists/" + artist_name+".json?&app_id=final";
+	$.ajax({
+		url: url,
+		dataType: "jsonp", // JSONP
+		success: renderData
+	})
+
+}
+
+function renderData(response) {
+	api_data = response
+	console.log(response);
+	//$("h2").eq(0).text(response.photos.photo[0].secret);
+	// render the data
+	for (var i=0; i < 5; i++) { 
+		//console.log(response.photos.photo[i].id);
+	}
+}
 
 $(document).ready(function() {
-	var url = "https://api.bandsintown.com/artists/Skrillex.json?api_version=2.0&app_id=final";
-	$.get(url, function(response) { 
-    	console.log(response);
-    	//$("h2").eq(0).text(response.photos.photo[0].secret);
-    	for (var i=0; i < 5; i++) { 
-    		//console.log(response.photos.photo[i].id);
-    	}
-	});
-	
+	make_bandsintown_api_request("Radiohead")
 
 
 	
