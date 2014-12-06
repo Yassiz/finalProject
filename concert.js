@@ -153,6 +153,9 @@ function make_spotify_api_request(artist_name) {
 		var spotifyUrl = 'https://api.spotify.com/v1/search?q='+ artist_name+'&type=artist';
 	  	$.get(spotifyUrl, function(responseSpotify) {
 	  		console.log(responseSpotify.artists.items[0].genres);
+	  		if (responseSpotify.artists.items[0].genres != "") {
+	  			$(".genres").text(responseSpotify.artists.items[0].name + " #" + responseSpotify.artists.items[0].genres);
+	  		}
 	  		var topTracksUrl = 'https://api.spotify.com/v1/artists/'+ responseSpotify.artists.items[0].id +'/top-tracks?country='+geo.country+'';
 		  	$.get(topTracksUrl, function(responseTrack) {
 		  		for(var i = 0; i < responseTrack.tracks.length; i++) {

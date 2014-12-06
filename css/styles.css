@@ -132,7 +132,6 @@ h5 {
 	display: none;
 	color: white;
 	font-size: 26px;
-	margin-top: 140px;
 }
 .middle {
 	float: left;
@@ -268,6 +267,11 @@ hr {
 	color: #473F3F;
 	line-height: 20px;
 
+}
+.genres {
+	border-radius: 5px;
+	color: #FFD243;
+	padding: 10px;
 }
 /******************************************
 /* LAYOUT                   
