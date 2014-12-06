@@ -24,20 +24,20 @@
 				<img class="menu" src="images/menu.png">
 			</div>
 			<nav>
-				<a class="bigTitle" href="dev.html">About US</a>
-				<a class="bigTitle" href="des.html">Contact US</a>
-				<a class="bigTitle" href="index.html">How it works</a>
-				<a class="bigTitle" href="index.html">Our Team</a>
+				<a class="bigTitle" href="index.html">About US</a>
+				<a class="bigTitle" href="index.html">Contact US</a>
+				<a class="bigTitle" href="index.html">Artists</a>
+				<a class="bigTitle" href="index.html">Search</a>
 				<a class="bigTitle" href="index.html">Blog</a>
 			</nav>
 		</header>
 		<div id="display">
 			<form id="entry">
 				<div class="text">Artist:</div>
-				<input id="artistName" autofocus placeholder="Artist" maxlength="30" size="30"><br>
+				<input id="artistName" autofocus placeholder="Artist" maxlength="30" size="20"><br>
 				<br><br>
 				<div class="text">Location:</div>
-				<input id="location" autofocus placeholder="City, State or Country" maxlength="30" size="30"><br>
+				<input id="location" autofocus placeholder="City, State or Country" maxlength="30" size="20"><br>
 				<input id="submit" type="submit">
 			</form>
 		</div>
@@ -49,7 +49,8 @@
 				</div>
 				<div class="middle">
 					<div class="txt">CONCERTS IN YOUR AREA</div>
-					<table cellpadding="5" cellspacing="5" class='events'>
+					<div class="mobileContent"></div>
+					<table cellpadding="10" cellspacing="10" class='events'>
 				        <thead>
 				          <tr>
 				            <th>Title</th>
@@ -61,7 +62,7 @@
 				        </tbody>
 				    </table>
 				    <div class="txtAll">ALL CONCERTS FOR THIS ARTIST</div>
-				    <table cellpadding="5" cellspacing="5" class='eventsAll'>
+				    <table cellpadding="10" cellspacing="10" class='eventsAll'>
 				        <thead>
 				          <tr>
 				            <th>Title</th>
@@ -76,11 +77,12 @@
 				<div>
 					<div class="willSlide" id='content'></div>
 					<div class="willSlide" id='btn'>
-					    <span class="click">Explore Recommended Events in your Area</span>
+					    <span class="click">Explore Recommended <br>Events in your Area</span>
 					    <span class="expandedTxt">Collapse</span>
 					</div>
 				</div>
 			</div>
+			<div id="recommendedMobile"><h5>Explore Recommended Events in your Area</h5></div>
 		</div>
 		<h2></h2>
 	</body>

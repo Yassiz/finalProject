@@ -27,16 +27,51 @@ function renderData(response) {
 	      $("table.events tbody").append(
 	        "<tr>" +
 	          "<td>" + 
-	            "<a href='" +  response[i].url + "'>" +
+	            "<a href='" +  response[i].ticket_url + "' target='_blank'>" +
 	              response[i].title + 
 	            "</a>" +
 	          "</td>" + 
 	          "<td>" + response[i].formatted_datetime + "</td>" + 
 	          "<td>" + response[i].formatted_location + "</td>" + 
-	          "<td><a class='ticket'>Tickets</a></td>" +
+	          "<td><a href='" +  response[i].ticket_url + "' target='_blank'class='ticket'>Tickets</a></td>" +
 	        "</tr>"
 	      );
 	    }
+		//Mobile
+		if (response.length >  3) {
+			var len = 3;
+		}
+		else {
+			var len = response.length;
+		}
+		
+		for(var i = 0; i < len; i++) {
+			var arr = response[i].formatted_datetime.split(',');
+			 $(".txt").after(
+				"<div class='contain'>" +
+					"<div class='limit'>" +
+						"<div class='clearfix'>" +
+							"<div class='data'>" +
+								arr[1] + "<br>" + arr[2] +
+							"</div>" +
+							"<div class='data'>" +
+								"<a href='" +  response[i].ticket_url + "' target='_blank'>" +
+								  response[i].title + 
+								"</a>" +
+								"<br><a class='mobileTicket' href='"+ response[i].ticket_url +"' target='_blank'>Tickets</a><br>" +
+							"</div>" +
+							"<div class='data'>" +
+						  		"<a href='" +  response[i].facebook_rsvp_url + "' target='_blank'>" +
+								  "RSVP" +
+								"</a>" +
+						  	"</div>" +
+						"</div>" +
+					"<hr></div>" +
+				"</div>"
+			  );
+			}
+
+			$(".mobileContent").after("<a id='showAll' href='javascript:void(0)'>SHOW ALL</a>");
 	}
 	else {
 		$("#display").hide();
@@ -47,11 +82,8 @@ function renderData(response) {
 }
 
 function make_bandsintown_api_request(artist_name) {
-	//var url = "https://api.bandsintown.com/artists/" + artist_name+"/events.json?&app_id=final";
-	//var url = "http://api.bandsintown.com/events/search?artists[]=" + artist_name+"&location=" + loc +"&format=json&app_id=final";
 	var url = "http://api.bandsintown.com/artists/" + artist_name+"/events.json?api_version=2.0&app_id=final";
-	//var url = "https://api.songkick.com/api/3.0/events.json?apikey=LXoF4HO8eDe4vyNK&artist_name=" + artist_name+"&min_date=2009-10-01&max_date=2009-10-30";
-	$.ajax({
+		$.ajax({
 		url: url,
 		dataType: "jsonp", // JSONP
 		success: renderDataAll
@@ -70,16 +102,45 @@ function renderDataAll(responseAll) {
 	      $("table.eventsAll tbody").append(
 	        "<tr>" +
 	          "<td>" + 
-	            "<a href='" +  responseAll[i].url + "'>" +
+	            "<a href='" +  responseAll[i].ticket_url + "' target='_blank'>" +
 	              responseAll[i].title + 
 	            "</a>" +
 	          "</td>" + 
 	          "<td>" + responseAll[i].formatted_datetime + "</td>" + 
 	          "<td>" + responseAll[i].formatted_location + "</td>" + 
-	          "<td><a class='ticket'>Tickets</a></td>" + 
+	          "<td><a href='" +  responseAll[i].ticket_url + "' target='_blank' class='ticket'>Tickets</a></td>" + 
 	        "</tr>"
 	      );
 	    }
+		//Mobile
+		$("#showAll").click(function(){
+			$(".limit").remove();
+			$("#showAll").hide();
+			for(i = 0; i < responseAll.length; i++) {
+				var arr = responseAll[i].formatted_datetime.split(',');
+				$(".mobileContent").append(
+					"<div class='contain'>" +
+					"" +
+						"<div class='clearfix'>" +
+							"<div class='data'>" +
+								arr[1] + "<br>" + arr[2] +
+							"</div>" +
+							"<div class='data'>" +
+								"<a href='" +  responseAll[i].ticket_url + "' target='_blank'>" +
+								  responseAll[i].title + 
+								"</a>" +
+								"<br><a href='" +  responseAll[i].ticket_url + "' target='_blank' class='mobileTicket' href=''>Tickets</a><br>" +
+							"</div>" +
+							"<div class='data'>" +
+						  		"<a href='" +  responseAll[i].facebook_rsvp_url + "' target='_blank'>" +
+								  "RSVP" +
+								"</a>" +
+						  	"</div>" +
+						"</div>" +
+					"<hr></div>"
+			  );
+			}
+		});
 	}
 }
 
@@ -121,19 +182,18 @@ function renderDataRecommend(responseRecommend) {
 			$("#content").append(
 				responseRecommend[i].title + "<br><small><b>" + responseRecommend[i].formatted_datetime + "</b><small><br><hr>"
 			);
+			$("#recommendedMobile").append(
+				responseRecommend[i].title + "<br><small><b>" + responseRecommend[i].formatted_datetime + "</b><small><br><hr>"
+			);
 		}
 	}
 	else {
 		$("#content").text("Nothing Found!");
+		$("#recommendedMobile").text("Nothing Found!");
 	}
 
 }
 $(document).ready(function() {
-	
-
-
-	
-	//var arr = [{name : , time: }];
 	$("#entry").submit(function(){
 		var artistName = $("#artistName").val();
 		var loc = $("#location").val();
@@ -164,4 +224,7 @@ $(document).ready(function() {
 	     //if you need you can add class when expanded
 	      (is_collapsed) ? $('.willSlide').removeClass('expanded') : $('.willSlide').addClass('expanded');
 	  });
+	  $(".menu").click(function() {
+		$("nav").toggleClass("show");
+	});
 });
