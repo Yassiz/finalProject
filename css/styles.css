@@ -180,6 +180,7 @@ td a {
 	background: #568ef4;
 	padding: 2px 10px;
 	color: #fff;
+	text-decoration: none;
 }
 .name {
 	float: left;
