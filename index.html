@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Be the first to know when your favorite bands are coming to town">
+		<meta name="keywords" content="live music,concert recommendations,local music,local concerts">
+		<title>Concerts Nearby</title>
+		<!-- external CSS links -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Merriweather|Oswald' rel='stylesheet' type='text/css'>
+		<!-- external JS links -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="concert.js"></script>
+
+		<link rel="stylesheet" href="jqueryUI/jquery-ui.min.css">
+		<script src="jqueryUI/external/jquery/jquery.js"></script>
+		<script src="jqueryUI/jquery-ui.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="clearfix">
+				<h1><a href="index.html">Lookup Concerts</a></h1>
+				<img class="menu" src="images/menu.png">
+			</div>
+			<nav>
+				<a class="bigTitle" href="dev.html">About US</a>
+				<a class="bigTitle" href="des.html">Contact US</a>
+				<a class="bigTitle" href="index.html">How it works</a>
+				<a class="bigTitle" href="index.html">Our Team</a>
+				<a class="bigTitle" href="index.html">Blog</a>
+			</nav>
+		</header>
+		<div id="display">
+			<form id="entry">
+				<div class="text">Artist:</div>
+				<input id="artistName" autofocus placeholder="Artist" maxlength="30" size="30"><br>
+				<br><br>
+				<div class="text">Location:</div>
+				<input id="location" autofocus placeholder="City, State or Country" maxlength="30" size="30"><br>
+				<input id="submit" type="submit">
+			</form>
+		</div>
+		<div id="result">
+			<div class="clearfix">
+				<div class="leftContainer">
+					<div id="artistPhoto"><img id="photo" src="" width="300"></div>
+					<div id="spotify"><h4>Top Tracks for this artist</h4></div>
+				</div>
+				<div class="middle">
+					<div class="txt">CONCERTS IN YOUR AREA</div>
+					<table cellpadding="5" cellspacing="5" class='events'>
+				        <thead>
+				          <tr>
+				            <th>Title</th>
+				            <th>Date</th>
+				            <th>City</th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				        </tbody>
+				    </table>
+				    <div class="txtAll">ALL CONCERTS FOR THIS ARTIST</div>
+				    <table cellpadding="5" cellspacing="5" class='eventsAll'>
+				        <thead>
+				          <tr>
+				            <th>Title</th>
+				            <th>Date</th>
+				            <th>City</th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				        </tbody>
+				    </table>
+				</div>
+				<div>
+					<div class="willSlide" id='content'></div>
+					<div class="willSlide" id='btn'>
+					    <span class="click">Explore Recommended Events in your Area</span>
+					    <span class="expandedTxt">Collapse</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h2></h2>
+	</body>
+</html>
