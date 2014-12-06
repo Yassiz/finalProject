@@ -258,6 +258,17 @@ input {
 hr {
 	margin: 0px;
 }
+#aboutUs {
+	width: 80%;
+	background: #ccc;
+	margin: 0 auto;
+	border-radius: 20px;
+	text-align: left;
+	padding: 30px;
+	color: #473F3F;
+	line-height: 20px;
+
+}
 /******************************************
 /* LAYOUT                   
 /*******************************************/
@@ -272,28 +283,24 @@ hr {
 
 @media (max-width:1310px) {
 	.leftContainer {
-		float: right;
-		width: 49%;
+		float: left;
+		width: 80%;
 	}
 	#photo {
 		width: 100%;
 	}
-}
-@media (max-width:1310px) {
-	.leftContainer {
-		float: right;
-		width: 100%;
-	}
+	
 	#artistPhoto {
 		float: left;
+		width: 20%;
 	}
 	#spotify {
-		width: 60%;
+		width: 77%;
 		float: left;
 		margin-left: 20px;
 	}
 	.middle {
-		width: 70%;
+		width: 80%;
 	}
 	iframe {
 		float: left;
@@ -301,7 +308,11 @@ hr {
 	}
 }
 @media (max-width:960px) {
-	#btn {
+	.leftContainer {
+		float: left;
+     	width: 100%;
+     }
+     #btn {
 		display: none;
 	}
 	#recommendedMobile {
@@ -362,6 +373,9 @@ hr {
 		color: white;
 		text-decoration: none;
 	}
+	 #spotify {
+     	width: 70%;
+	}
 }
 
 @media (max-width:593px) {
@@ -399,9 +413,13 @@ hr {
      .show {
           display:block;
      }
+     .leftContainer {
+     	width: 100%;
+     }
      #artistPhoto {
      	float: none;
      	text-align: center;
+     	width: 100%;
      }
      #spotify {
      	width: 90%;
